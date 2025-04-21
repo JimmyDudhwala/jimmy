@@ -61,11 +61,15 @@ const Homepage = () => {
           <Navbar />
         </div>
         <div className=' w-full h-full flex justify-center items-center overflow-hidden rounded-b-[200px]'>
-          <div className=' w-[100%] h-full flex overflow-hidden'>
-            <Tiny width={200} height={200} src='/star.svg' />
-            <div className=' w-1/2 h-full   flex justify-end items-end pb-10'>
+            <Tiny width={150} height={150} src='/star.svg' />
+          <div className=' w-[85%] h-full flex overflow-hidden justify-center '>
+           
+            <div className=' w-[25%] h-full   flex justify-end items-end pb-10'>
 
               <div className='relative translate-x-20 z-20' >
+                 <div className='absolute top-0 -left-20'>
+
+            </div>
                 <div
                   className="w-full max-w-[510px] text-[clamp(1.5rem,3vw,3rem)] mx-auto text-center font-playfair font-extrabold leading-snug text-[#0F3443]"
                   style={{ width: 'clamp(300px, 50vw, 510px)' }}
@@ -79,11 +83,11 @@ const Homepage = () => {
               </div>
 
             </div>
-            <div className=' w-1/2 h-full  flex  relative justify-start items-end '>
+            <div className=' w-[50%] h-full  flex  relative justify-start items-end '>
               <div className='absolute translate-x-30 z-10 w-[70%] h-full flex justify-center items-center  '>
                 <Image src="/photo.png" alt="my photo" fill />
               </div>
-              <div className='w-[95%]   h-full flex relative justify-center items-end top-[25%]'>
+              <div className='w-[100%]   h-full flex relative justify-center items-end top-[25%]'>
                 <div className='bg-[#E0FF4F] w-[100%] h-[120%] rounded-full absolute'></div>
                 <div className='bg-[#EFFFA3] w-[85%] h-[100%] rounded-full absolute'></div>
                 <div className='bg-[#0F3443] w-[65%] h-[70%] rounded-full absolute'></div>
