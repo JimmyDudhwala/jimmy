@@ -53,7 +53,7 @@ const Homepage = () => {
   return (
     <div className='h-screen w-full bg-[#F8FFE5] relative'>
       <div className='h-[85%] w-full bg-[#34E89E] rounded-b-[200px] relative shadow-2xl flex  flex-col items-center drop-shadow-2xl'>
-        <div className='  w-[60%] h-[30%] flex items-center justify-between'>
+        <div className='  w-[60%] h-[25%] flex items-center justify-between'>
           <div className=''>
             <Circle big="#F8FFE5" small="#34E89E" text="Portfolio" />
           </div>
@@ -61,7 +61,7 @@ const Homepage = () => {
           <Navbar />
         </div>
         <div className=' w-full h-full flex justify-center items-center overflow-hidden rounded-b-[200px]'>
-          <div className=' w-[90%] h-full flex overflow-hidden'>
+          <div className=' w-[100%] h-full flex overflow-hidden'>
             <Tiny width={200} height={200} src='/star.svg' />
             <div className=' w-1/2 h-full   flex justify-end items-end pb-10'>
 
