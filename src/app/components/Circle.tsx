@@ -4,9 +4,10 @@ import { motion } from "framer-motion"
 interface CircleProps {
   small: string;
   big: string;
+  text: string
 }
 
-const Circle = ({ small, big }: CircleProps) => {
+const Circle = ({ small, big, text }: CircleProps) => {
   // Outer circle radius = 90px, Inner circle radius = 30px
   const outerRadius = 90
   const innerRadius = 30
@@ -36,12 +37,12 @@ const Circle = ({ small, big }: CircleProps) => {
   const { x, y } = getPositionFromClock(clockPosition)
 
   return (
-    <div className="absolute left-50 top-10 flex justify-center items-center ">
+    <div className="relative flex justify-center items-center mt-10 ">
       <div
         className="absolute z-10 mb-5 font-playfair font-bold text-6xl text-[#0F3443] pointer-events-none"
         style={{ textShadow: "6px 6px 10px rgba(0, 0, 0, 0.3)" }}
       >
-        Portfolio
+        {text}
       </div>
       <motion.div
         className={`relative h-[180px] w-[180px] rounded-full shadow-2xl drop-shadow-xl`}
@@ -55,7 +56,7 @@ const Circle = ({ small, big }: CircleProps) => {
             hover: {
               rotate: 360,
               transition: {
-                duration: 1,
+                duration: 0.5,
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "linear",
               },
