@@ -80,7 +80,7 @@ const Homepage = () => {
 
             </div>
             <div className=' w-1/2 h-full  flex  relative justify-start items-end '>
-              <div className='absolute translate-x-20 z-10 w-[70%] h-full flex justify-center items-center  '>
+              <div className='absolute translate-x-30 z-10 w-[70%] h-full flex justify-center items-center  '>
                 <Image src="/photo.png" alt="my photo" fill />
               </div>
               <div className='w-[95%]   h-full flex relative justify-center items-end top-[25%]'>
