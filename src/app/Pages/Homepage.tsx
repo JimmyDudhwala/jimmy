@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Circle from '../components/Circle'
 import Image from 'next/image'
@@ -12,6 +12,10 @@ const quote = "Crafting intelligent digital products with thoughtful design and 
 const highlights = ["Crafting", "digital products", "design", "code"]
 
 const Homepage = () => {
+
+      const [isOpen, setIsOpen] = useState(false);
+
+
   const renderQuote = () => {
     const words = quote.split(" ")
     const result: React.ReactNode[] = []
@@ -78,7 +82,7 @@ const Homepage = () => {
           <div className="absolute lg:relative right-0 mt-4 lg:mt-0">
             <Tiny width={100} height={100} src="/hash.svg" />
           </div>
-          <Navbar />
+          <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
 
         {/* Bottom Content */}
