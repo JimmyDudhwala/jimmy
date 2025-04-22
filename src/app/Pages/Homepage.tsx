@@ -82,7 +82,7 @@ const Homepage = () => {
         </div>
 
         {/* Bottom Content */}
-        <div className="w-full h-full flex flex-col lg:flex-row justify-center items-center overflow-hidden  rounded-b-[60px] lg:rounded-b-[200px]  px-4">
+        <div className="w-full h-full flex flex-col lg:flex-row justify-center items-center overflow-hidden  rounded-b-[60px] lg:rounded-b-[200px] ">
           {/* Star Tiny */}
           <div className="absolute left-0 top-4/12 lg:top-0 lg:left-0 lg:scale-100 scale-40  lg:relative">
             <Tiny width={150} height={150} src="/star.svg" />
