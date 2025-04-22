@@ -7,6 +7,8 @@ import Tiny from '../components/Tiny'
 import Cursor from '../components/Cursor'
 import ArrowSvg from '../components/ArrowSvg'
 import { motion } from 'framer-motion'
+import ScrollLock from '../components/ScrollLock'
+import Sidebar from '../components/Sidebar'
 
 const quote = "Crafting intelligent digital products with thoughtful design and powerful code"
 const highlights = ["Crafting", "digital products", "design", "code"]
@@ -54,8 +56,9 @@ const Homepage = () => {
 
   return (
     <>
-    <div className="lg:h-screen h-full w-full bg-[#F8FFE5] relative overflow-hidden">
-      <div className="lg:h-[85%] h-full w-full bg-[#34E89E] lg:rounded-b-[200px] rounded-b-[60px] relative shadow-2xl flex flex-col gap-10 items-center drop-shadow-2xl">
+    <ScrollLock locked={isOpen}>
+    <div className="h-screen w-full bg-[#F8FFE5] relative overflow-hidden">
+      <div className="lg:h-[85%]  h-full w-full bg-[#34E89E] lg:rounded-b-[200px] rounded-b-[60px] relative shadow-2xl flex flex-col gap-10 items-center drop-shadow-2xl">
 
         {/* Cursors - visible only on lg screens */}
         <div className="hidden lg:block absolute top-2/12 left-12">
@@ -82,11 +85,16 @@ const Homepage = () => {
           <div className="absolute lg:relative right-0 mt-4 lg:mt-0">
             <Tiny width={100} height={100} src="/hash.svg" />
           </div>
+          
+            
+
           <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
+          
+         
         </div>
 
         {/* Bottom Content */}
-        <div className="w-full h-full flex flex-col lg:flex-row justify-center items-center overflow-hidden  rounded-b-[60px] lg:rounded-b-[200px] ">
+        <div className="w-full  h-full flex flex-col lg:flex-row justify-center items-center overflow-hidden  rounded-b-[60px] lg:rounded-b-[200px] ">
           {/* Star Tiny */}
           <div className="absolute left-0 top-4/12 lg:top-0 lg:left-0 lg:scale-100 scale-40  lg:relative">
             <Tiny width={150} height={150} src="/star.svg" />
@@ -145,6 +153,8 @@ const Homepage = () => {
     <div className='h-screen w-full'>
 
     </div>
+     <Sidebar isOpen={isOpen} />
+    </ScrollLock>
     </>
   )
 }

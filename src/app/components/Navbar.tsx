@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import { AnimatePresence, motion } from "framer-motion";
-import Sidebar from "./Sidebar";
 
 interface NavbarProps {
     isOpen: boolean;
@@ -19,8 +18,8 @@ const Navbar = ({isOpen, setIsOpen}:NavbarProps) => {
 
     return (
         <>
-            <div className='h-[100px] border w-[320px] rounded-3xl bg-[#F8FFE5] relative  shadow-2xl drop-shadow-xl z-100'>
-                <div className='flex justify-evenly items-center h-full w-full gap-10 '>
+            <div className='h-[100px] border w-[320px] rounded-3xl bg-[#F8FFE5]   shadow-2xl drop-shadow-xl z-100'>
+                <div className='flex justify-evenly items-center h-full w-full gap-10 fixed'>
                     <div className='h-[80%] w-[60%] bg-[#34E89E] rounded-[20px]  flex justify-evenly   items-center'>
                         <div className='w-[25%] h-[60%] bg-[#34E89E] shadow-2xl drop-shadow-xl relative border-[0.5px] rounded-[15px] flex justify-center items-center'>
                             {/* Animated ring only */}
@@ -63,7 +62,7 @@ const Navbar = ({isOpen, setIsOpen}:NavbarProps) => {
                     </AnimatePresence>
                 </div>
             </div>
-            <Sidebar isOpen={isOpen} />
+           
         </>
     )
 }
