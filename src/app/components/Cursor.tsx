@@ -15,7 +15,7 @@ const Cursor = ({ color, message }: CursorProps) => {
       {/* Tooltip that appears on hover */}
       <div
         className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-white text-sm font-medium rounded-md shadow-md 
-        transition-all duration-300 whitespace-nowrap z-10
+        transition-all duration-300 whitespace-nowrap z-40
         ${isHovering ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1 pointer-events-none"}
         border border-gray-100 text-gray-800`}
         style={{
