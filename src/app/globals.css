@@ -5,11 +5,6 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-playfair: var(--font-playfairDisplay);
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -21,6 +16,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: playfair, sans-serif;
+  font-family: var(--font-playfair), serif;
   cursor: url('/curser.svg'), auto;
 }

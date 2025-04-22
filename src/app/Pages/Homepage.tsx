@@ -1,8 +1,12 @@
+"use client"
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Circle from '../components/Circle'
 import Image from 'next/image'
 import Tiny from '../components/Tiny';
+import Cursor from '../components/Cursor';
+import ArrowSvg from '../components/ArrowSvg';
+import {motion } from 'framer-motion';
 
 const quote = "Crafting intelligent digital products with thoughtful design and  powerful code";
 const highlights = [
@@ -33,7 +37,12 @@ const Homepage = () => {
               className="relative inline-block px-1 mx-[1px]"
             >
               {/* Background span - bottom half highlight */}
-              <span className="absolute bottom-0 left-0 w-full h-1/3 bg-[#FF6D00] z-0 rounded-sm" />
+              <motion.span
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1, delay: 1 }}
+
+               className="absolute bottom-0 left-0 w-full h-1/3 bg-[#FF6D00] z-0 rounded-sm" />
               <span className="relative z-10">{phrase}</span>
             </span>
           );
@@ -53,6 +62,22 @@ const Homepage = () => {
   return (
     <div className='h-screen w-full bg-[#F8FFE5] relative'>
       <div className='h-[85%] w-full bg-[#34E89E] rounded-b-[200px] relative shadow-2xl flex  flex-col items-center drop-shadow-2xl'>
+        <div className='absolute top-2/12 left-12'>
+          <Cursor message='UI/UX Designer' color="#CFC2FF"/>
+        </div>
+         <div className='absolute top-5/12 left-5/12'>
+          <Cursor message='App developer' color="#B0EC9C" />
+        </div>
+        <div className='absolute bottom-2/12 left-1/12'>
+          <Cursor message='Full-Stack Developer' color="#FF00DD"/>
+        </div>
+        <div className='absolute top-4/12 right-12'>
+          <Cursor message='AI/ML Explorer' color="purple"/>
+        </div>
+        <div className='absolute bottom-2/12 right-1/12'>
+          <Cursor message='System Architect' color="#AB0003"/>
+        </div>
+        
         <div className='  w-[60%] h-[25%] flex items-center justify-between'>
           <div className=''>
             <Circle big="#F8FFE5" small="#34E89E" text="Portfolio" />
@@ -71,13 +96,16 @@ const Homepage = () => {
 
             </div>
                 <div
-                  className="w-full max-w-[510px] text-[clamp(1.5rem,3vw,3rem)] mx-auto text-center font-playfair font-extrabold leading-snug text-[#0F3443]"
+                  className="w-full relative max-w-[510px] text-[clamp(1.5rem,3vw,3rem)] mx-auto text-center font-playfair font-extrabold leading-snug text-[#0F3443]"
                   style={{ width: 'clamp(300px, 50vw, 510px)' }}
                 >
                   “ {renderQuote()} ”
                 </div>
-                <div className='text-end w-[80%] text-[#0F3443] text-xl md:text-2xl lg:text-3xl font-playfair font-extrabold leading-snug mt-5'>
-                  Jimmy
+<div className='text-end w-[80%] text-[#0F3443] text-xl md:text-2xl lg:text-3xl font-extrabold leading-snug mt-5'>
+  Jimmy
+</div>
+                <div className='absolute -right-26 -rotate-[24deg] -bottom-5'>
+                  <ArrowSvg />
                 </div>
 
               </div>
