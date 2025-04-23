@@ -38,7 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
             exit={{ x: -2000, borderTopRightRadius: "350px", borderBottomRightRadius: "350px" }}
             className={`h-screen z-90  lg:w-[50%] w-[98%] bg-[#0F3443] absolute top-0 left-0 shadow-[60px_0_100px_rgba(0,0,0,0.4)] overflow-hidden`}
         >
-            <div className='h-full w-full mt-[40px] bg-[#0F3443] flex flex-col justify-center lg:items-start items-center'>
+            <div className='h-full w-full mt-[40px] md:mt-0 bg-[#0F3443] flex flex-col justify-center lg:items-start items-center'>
             {items.map((item) => (
                 <div
                 key={item.id}
