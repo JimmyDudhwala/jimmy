@@ -28,13 +28,18 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-track {
   background: transparent;
-  /* Track color */
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: wheat;
-  /* Thumb color */
   border-radius: 10px;
   border: 2px solid transparent;
   background-clip: content-box;
+}
+
+/* Prevent content from shifting when scrollbar appears */
+@layer base {
+  html {
+    overflow-y: overlay;
+  }
 }

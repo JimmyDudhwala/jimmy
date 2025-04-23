@@ -38,11 +38,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
             exit={{ x: -2000, borderTopRightRadius: "350px", borderBottomRightRadius: "350px" }}
             className={`h-screen z-90  lg:w-[50%] w-[98%] bg-[#0F3443] absolute top-0 left-0 shadow-[60px_0_100px_rgba(0,0,0,0.4)] overflow-hidden`}
         >
-            <div className='h-full w-full bg-[#0F3443] flex flex-col justify-center lg:items-start items-center'>
+            <div className='h-full w-full mt-[40px] bg-[#0F3443] flex flex-col justify-center lg:items-start items-center'>
             {items.map((item) => (
                 <div
                 key={item.id}
-                className='text-[#F8FFE5] text-[3rem] md:text-[4rem]  lg:ml-28 font-playfair font-[800] p-2 overflow-hidden'>
+                className='text-[#F8FFE5] text-[3rem] md:text-[4rem]  lg:ml-28 font-playfair font-[800] md:p-2 p-1 overflow-hidden'>
                 <motion.div
                     initial={{ opacity: 0, y: -100 }}
                     animate={{ opacity: 1, y: isOpen ? 0 : 1000 }}
