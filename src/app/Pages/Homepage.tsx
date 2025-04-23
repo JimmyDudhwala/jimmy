@@ -9,6 +9,7 @@ import ArrowSvg from '../components/ArrowSvg'
 import { motion } from 'framer-motion'
 import ScrollLock from '../components/ScrollLock'
 import Sidebar from '../components/Sidebar'
+import Footer from '../components/Footer'
 
 const quote = "Crafting intelligent digital products with thoughtful design and powerful code"
 const highlights = ["Crafting", "digital products", "design", "code"]
@@ -57,8 +58,8 @@ const Homepage = () => {
   return (
     <>
     <ScrollLock locked={isOpen}>
-    <div className="h-screen w-full bg-[#F8FFE5] relative overflow-hidden">
-      <div className="lg:h-[85%]  h-full w-full bg-[#34E89E] lg:rounded-b-[200px] rounded-b-[60px] relative shadow-2xl flex flex-col gap-10 items-center drop-shadow-2xl">
+    <div className="lg:h-screen w-full bg-[#F8FFE5] relative overflow-hidden pb-24">
+      <div className="lg:h-[85%]  w-full bg-[#34E89E] lg:rounded-b-[200px] rounded-b-[60px] relative shadow-2xl flex flex-col gap-10 items-center drop-shadow-2xl">
 
         {/* Cursors - visible only on lg screens */}
         <div className="hidden lg:block absolute top-2/12 left-12">
@@ -87,8 +88,9 @@ const Homepage = () => {
           </div>
           
             
-
+      
           <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
+      
           
          
         </div>
@@ -101,14 +103,12 @@ const Homepage = () => {
           </div>
 
           {/* Quote Section */}
-          <div className=' lg:w-[75%] w-full h-full flex lg:flex-row flex-col overflow-hidden justify-center '>
+          <div className=' lg:w-[75%] w-full h-full flex lg:flex-row flex-col  justify-center '>
 
             <div className=' lg:w-[25%] w-full h-full   flex lg:flex-row flex-col lg:justify-end lg:items-end pb-10'>
 
               <div className='relative lg:translate-x-30 z-20 ' >
-                <div className='absolute top-0 -left-20'>
-
-                </div>
+                {/* Quote */} 
                 <div
                   className="w-full relative max-w-[510px] text-[clamp(1.5rem,3vw,3rem)] mx-auto text-center font-playfair font-extrabold leading-snug text-[#0F3443]"
                   style={{ width: 'clamp(300px, 50vw, 510px)' }}
@@ -150,10 +150,12 @@ const Homepage = () => {
 
       </div>
     </div>
-    <div className='h-screen w-full'>
+    <div className='h-screen w-full bg-[#F8FFE5] flex justify-center items-center'>
 
     </div>
-     <Sidebar isOpen={isOpen} />
+
+    <Footer/>
+   
     </ScrollLock>
     </>
   )
