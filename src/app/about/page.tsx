@@ -75,6 +75,7 @@ const page = () => {
                     <div className="absolute md:scale-78 scale-75 lg:scale-90">
                       <Sketch />
                     </div>
+                    <div className="absolute w-[90%] h-[60%] bg-yellow-400/40 blur-3xl "></div>
                     <div className="absolute flex justify-center items-center  scale-70 lg:scale-90">
                       <Responsive />
                     </div>
