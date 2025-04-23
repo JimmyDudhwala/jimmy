@@ -8,7 +8,6 @@ import Cursor from '../components/Cursor'
 import ArrowSvg from '../components/ArrowSvg'
 import { motion } from 'framer-motion'
 import ScrollLock from '../components/ScrollLock'
-import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
 
 const quote = "Crafting intelligent digital products with thoughtful design and powerful code"
@@ -58,8 +57,8 @@ const Homepage = () => {
   return (
     <>
     <ScrollLock locked={isOpen}>
-    <div className="lg:h-screen w-full bg-[#F8FFE5] relative overflow-hidden pb-24">
-      <div className="lg:h-[85%]  w-full bg-[#34E89E] lg:rounded-b-[200px] rounded-b-[60px] relative shadow-2xl flex flex-col gap-10 items-center drop-shadow-2xl">
+    <div className="lg:h-screen w-full bg-[#F8FFE5] relative overflow-hidden lg:pb-0 pb-20 ">
+      <div className="h-[90%]  w-full bg-[#34E89E] lg:rounded-b-[200px] rounded-b-[60px] relative shadow-2xl flex flex-col gap-10 items-center drop-shadow-2xl">
 
         {/* Cursors - visible only on lg screens */}
         <div className="hidden lg:block absolute top-2/12 left-12">
@@ -150,7 +149,7 @@ const Homepage = () => {
 
       </div>
     </div>
-    <div className='h-screen w-full bg-[#F8FFE5] flex justify-center items-center'>
+    <div className='h-screen w-full bg-[#F8FFE5] flex justify-center  items-center'>
 
     </div>
 
