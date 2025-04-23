@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+// next.config.js
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    domains: [
+      'www.svgrepo.com',
+      'seeklogo.com',
+      'upload.wikimedia.org', // for Next.js logo if used from Wikimedia
+    ],
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
