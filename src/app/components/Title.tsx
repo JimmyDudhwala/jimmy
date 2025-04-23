@@ -44,7 +44,7 @@ const Title = ({ text }: TitleProps) => {
               rotate: { duration: 0.8, ease: "easeInOut" },
               width: { delay: 0.8, duration: 1, ease: "easeInOut" },
             }}
-            className="h-[40%] overflow-hidden border-l-[10px] border-r-[10px] border-[#FF6D00] flex flex-col items-center justify-center"
+            className="lg:h-[50%] md:h-[30%] h-[45%] overflow-hidden border-l-[10px] border-r-[10px] border-[#FF6D00] flex flex-col items-center justify-center"
           >
             <div className="lg:-mx-[20px] -mx-[12px] flex justify-center items-center">
               <h1 className="lg:text-[120px] text-[60px] whitespace-nowrap font-[600] -rotate-[14deg] text-[#0F3443]">{text}</h1>

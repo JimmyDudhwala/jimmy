@@ -4,7 +4,7 @@ import Title from '../components/Title'
 const page = () => {
   return (
     <div>
-      <Title text="About Me"/>
+      <Title text="Connect Me"/>
     </div>
   )
 }
