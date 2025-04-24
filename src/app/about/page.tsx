@@ -123,7 +123,7 @@ const page = () => {
                   </div>
                   <div className="relative w-full ">
                     <div className=" absolute lg:-top-60 -rotate-12 lg:-right-[16%] lg:scale w-[1000px] h-[500px]">
-                      <Image src="/Codesnippet.svg" alt="Code Snippet" fill/>
+                      <Image src="/Codesnippet.svg" alt="Code Snippet" fill className="hover:cursor-[url('/Input.svg'),auto]"/>
                     </div>
                   </div>
                 </div>
