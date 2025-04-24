@@ -8,6 +8,7 @@ import Button from "../components/Button"
 import Responsive from "../components/Responsive"
 import Sketch from "../components/Sketch"
 import Image from "next/image"
+import WaveScroll from "../components/Wavescroll"
 
 const page = () => {
   return (
@@ -132,7 +133,10 @@ const page = () => {
 
         </div>
       </div>
+      <div className="bg-[#F8FFE5]">
 
+      <WaveScroll/>
+      </div>
       <Footer />
     </div>
   )
