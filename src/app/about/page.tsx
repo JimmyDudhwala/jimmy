@@ -7,13 +7,14 @@ import RandomTools from "../components/Randomtools"
 import Button from "../components/Button"
 import Responsive from "../components/Responsive"
 import Sketch from "../components/Sketch"
+import Image from "next/image"
 
 const page = () => {
   return (
     <div className="w-full h-full">
       <Title text="About Me" />
       <div className="w-full   bg-[#F8FFE5] flex flex-col items-center justify-center">
-        <div className="md:w-[98%] lg:w-[90%] w-[95%]  grid lg:grid-rows-[2fr_0.9fr] md:grid-rows-[2fr_0.7fr] grid-rows-[2fr_0.7fr]  p-2 md:p-2 lg:p-10 gap-10">
+        <div className="md:w-[98%] lg:w-[90%] w-[95%]  grid lg:grid-rows-[2fr_0.9fr] md:grid-rows-[2fr_1fr] grid-rows-[2fr_0.7fr]  p-2 md:p-2 lg:p-10 gap-10">
           {/* Top Section */}
           <div className="grid lg:grid-cols-[1fr_1.2fr] lg:grid-rows-none md:grid-rows-none md:grid-cols-[1fr_1fr] grid-rows-[1fr_1fr] gap-5">
             {/* Left Column */}
@@ -103,8 +104,29 @@ const page = () => {
           </div>
 
           {/* Bottom Section */}
-          <div className="bg-pink-300  flex flex-col justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">Bottom (0.9fr) 5th
-
+          <div className="bg-pink-300  flex flex-col justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">
+            <div className="relative w-[99.5%] h-[99%] border-2 rounded-4xl flex flex-col items-center justify-start overflow-hidden">
+                  <div className="relative w-full pl-10 text-[3rem] text-[#0F3443] font-[600] pt-3 font-playfair">
+                    <Quote quote="Innovate" highlights={["Innovate"]} />
+                    <div className="text-[#0F3443] text-[1.7rem] font-[900] w-[85%] mt-10 font-playfair">
+                      Transforming ideas into future-ready solutions
+                    </div>
+                    <div>
+                      <ol className="text-[#0F3443] leading-loose text-[1.2rem] font-[600] w-[80%] mt-3 font-playfair">
+                        <li>Future-proof architecture</li>
+                        <li>AI & automation-ready</li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div className="h-[10%] w-full m-5 flex justify-start pl-10 items-center">
+                    <Button text="Blog" />
+                  </div>
+                  <div className="relative w-full ">
+                    <div className=" absolute lg:-top-60 -rotate-12 lg:-right-[16%] lg:scale w-[1000px] h-[500px]">
+                      <Image src="/Codesnippet.svg" alt="Code Snippet" fill/>
+                    </div>
+                  </div>
+                </div>
           </div>
 
 
