@@ -12,7 +12,7 @@ interface SidebarProps {
 const items = [
     { id: 1, name: "Home", href: "/" },
     { id: 2, name: "About", href: "/about" },
-    { id: 3, name: "Projects", href: "/Projects" },
+    { id: 3, name: "Projects", href: "/projects" },
     { id: 4, name: "Experience", href: "/experience" },
     { id: 5, name: "Contact", href: "/contact" },
     { id: 6, name: "Blog", href: "/blog" },
