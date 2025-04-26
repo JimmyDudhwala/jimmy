@@ -53,7 +53,7 @@ export default function WaveScroll() {
           <div className="relative left-0 flex w-[400vw]   h-[30%]  items-start justify-start scale-x-200 lg:scale-40 lg:scale-x-80   ">
             {/* The wave path - using SVG for precise control */}
             
-                <div className="absolute lg:-scale-x-80 -scale-120 scale-x-100  top-[45%] lg:top-[200%] -left-[1%]"> 
+                <div className="absolute lg:-scale-x-80 -scale-120 scale-x-100  top-[45%] left-[3%] lg:top-[200%] lg:-left-[1%]"> 
 
                 <WaveDot/>
                 </div>

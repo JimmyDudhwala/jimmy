@@ -4,11 +4,12 @@ import { motion } from "framer-motion"
 interface CircleProps {
   small: string;
   big: string;
-  text: string
+  text: string;
+  textSize?: string;
   whiteSpace?: boolean
 }
 
-const Circle = ({ small, big, text, whiteSpace=true }: CircleProps) => {
+const Circle = ({ small, big, text, whiteSpace=true, textSize="6xl" }: CircleProps) => {
   // Outer circle radius = 90px, Inner circle radius = 30px
   const outerRadius = 90
   const innerRadius = 30
@@ -74,7 +75,7 @@ const Circle = ({ small, big, text, whiteSpace=true }: CircleProps) => {
         </motion.div>
       </motion.div>
            <div
-        className={`absolute mb-5 font-playfair text-center ${whiteSpace ? "whitespace-nowrap" : " "} font-bold text-6xl text-[#0F3443] pointer-events-none`}
+        className={`absolute mb-5 font-playfair text-center ${whiteSpace ? "whitespace-nowrap" : " "} font-bold text-${textSize} text-[#0F3443] pointer-events-none`}
         style={{ textShadow: "6px 6px 10px rgba(0, 0, 0, 0.3)" }}
       >
         {text}
