@@ -1,15 +1,17 @@
 import Image from 'next/image'
+import Link from 'next/link';
 import React from 'react'
 
 interface ProjectContainerProp {
   src : string;
   title : string;
+  link: string
 }
 
-const ProjectContainer = ({src, title}:ProjectContainerProp) => {
+const ProjectContainer = ({src, title, link}:ProjectContainerProp) => {
   return (
-    <div className='relative group w-full max-w-[550px] h-[350px] bg-gray-100/10 rounded-[20px] shadow-2xl flex flex-col items-center justify-between overflow-hidden transition-all duration-300 ease-in-out hover:shadow-[0_15px_30px_rgba(0,0,0,0.6)] hover:-translate-y-2'>
-
+    <Link href={link} className='relative group w-full max-w-[550px] h-[350px] bg-gray-100/10 rounded-[20px] shadow-2xl flex flex-col items-center justify-between overflow-hidden transition-all duration-300 ease-in-out hover:shadow-[0_15px_30px_rgba(0,0,0,0.6)] hover:-translate-y-2'>
+      
       {/* Top Bar */}
       <div className='w-full h-[10%] p-[5%] flex justify-start gap-2 items-center z-20'>
         <div className='w-[12px] h-[12px] rounded-full bg-red-500 shadow-md'></div>
@@ -40,8 +42,7 @@ const ProjectContainer = ({src, title}:ProjectContainerProp) => {
         </div>
 
       </div>
-
-    </div>
+    </Link>
   )
 }
 

@@ -8,11 +8,15 @@ import { useDeviceType } from "../hook/use-device-type"
 import ProjectContainer from "../components/ProjectContainer"
 import Quote from "../components/Quote"
 import Footer from "../components/Footer"
+import Image from "next/image"
+import Link from "next/link"
 
 const projects = [
   {
     id: 1,
     number: "1",
+    Link:"https://jimmydudhwala.github.io/BookMyShow/",
+    src:"/BMSproject.jpg",
     title: "Bookmyshow",
     heading: "Project1",
     descriptionLines: [
@@ -23,55 +27,60 @@ const projects = [
       "Built for fun and learning.",
     ],
   },
+
+
   {
-    id: 2,
-    number: "2",
-    title: "Project-2",
-    heading: "Project2",
-    descriptionLines: [
-      "I built a crypto price tracker app.",
-      "Charts and stats update every second live.",
-      "Track Bitcoin, Ethereum, and many other coins.",
-      "Responsive design with dark and light themes.",
-      "Built using React, Tailwind, and CoinGecko API.",
-    ],
-  },
+  id: 2,
+  number: "2",
+  Link:"https://jimmyportfolio.vercel.app/",
+  title: "ProTemplate",
+  src: "/Portfolio.jpg",
+  heading: "Project3",
+  descriptionLines: [
+    "Built a clean and modern portfolio template.",
+    "Showcase projects, skills, and experience effortlessly.",
+    "Responsive design for all screen sizes.",
+    "Customizable sections for personal branding.",
+    "Easy-to-use layout with smooth animations."
+  ]
+},
+{
+  id: 3,
+  number: "3",
+  src: "/Shopping.jpg",
+  title: "ShopCart",
+  Link:"https://jimmydudhwala.github.io/shoppingCart/",
+  heading: "Project4",
+  descriptionLines: [
+    "eCommerce app with Redux Toolkit.",
+    "Real-time cart updates.",
+    "Secure checkout integration.",
+    "Dynamic cart functionality.",
+    "Responsive with React.js and Tailwind."
+  ]
+},
   {
-    id: 3,
-    number: "3",
-    title: "Project-3",
-    heading: "Project3",
-    descriptionLines: [
-      "I built an eCommerce website for gadgets.",
-      "Add items, manage cart, and checkout easily.",
-      "Fully functional product filters and category pages.",
-      "Secure payments via Stripe and PayPal integrations.",
-      "Smooth user flow with modern UI components.",
-    ],
-  },
-  {
-    id: 4,
-    number: "4",
-    title: "Project-4",
-    heading: "Project4",
-    descriptionLines: [
-      "I built a portfolio site for creatives.",
-      "Framer Motion brings the animations to life.",
-      "Showcasing design, development, and case study sections.",
-      "Contact form integrates directly with backend database.",
-      "Minimalist layout built using Next.js framework.",
-    ],
-  },
+  id: 4,
+  number: "4",
+  src: "/Bloodbank.jpg",
+  Link:"https://github.com/JimmyDudhwala/redpluse",
+  title: "RED +",
+  heading: "Project2",
+  descriptionLines: [
+    "Built a blood donation platform.",
+    "Find nearby blood banks & Events easily.",
+    "BloodBank Dashboard with blood stocks updates",
+    "from Event Management to Donor Registration.",
+    "Made with Nextjs and Mongo.",
+  ],
+},
 ]
 
   const MoreProject = [
-    {id:"1", title: "Bookmyhshow",src: "/Bookmyshow.png"},
-    {id:"2", title: "Bookmyhshow",src: "/Bookmyshow.png"},
-    {id:"3", title: "Bookmyhshow",src: "/Bookmyshow.png"},
-    {id:"4", title: "Bookmyhshow",src: "/Bookmyshow.png"},
-    {id:"5", title: "Bookmyhshow",src: "/Bookmyshow.png"},
-    {id:"6", title: "Bookmyhshow",src: "/Bookmyshow.png"},
-    {id:"7", title: "Bookmyhshow",src: "/Bookmyshow.png"},
+    {id:"1",Link:"https://jimmydudhwala.github.io/ExpenseTracker/", title: "Expense Tracker ",src: "/MoreProjects/ExpenseTrack.jpg"},
+    {id:"2",Link:"https://tastezy-services.vercel.app/", title: "SAAS template",src: "/MoreProjects/Saas.png"},
+    {id:"3",Link:"https://codepen.io/JimmyDudhwala/pen/mdgXNxr", title: "Music Palyer",src: "/MoreProjects/Music.jpg"},
+    {id:"4",Link:"https://codepen.io/JimmyDudhwala/pen/xxepVOd", title: "Guess the Number",src: "/MoreProjects/Guess.png"},
   ]
 
 const ProjectsPage = () => {
@@ -94,7 +103,7 @@ const AnimatedProjectsView = () => {
     offset: ["start start", "end end"],
   })
 
-  const y1 = useTransform(scrollYProgress, [0, 0.33], ["0%", "-100%"])
+  const y1 = useTransform(scrollYProgress, [0.15, 0.33], ["0%", "-100%"])
   const y2 = useTransform(scrollYProgress, [0.33, 0.66], ["0%", "-200%"])
   const y3 = useTransform(scrollYProgress, [0.66, 0.99], ["0%", "-300%"])
 
@@ -116,16 +125,16 @@ const AnimatedProjectsView = () => {
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
-                  className="w-full absolute border-2 min-h-[100vh] flex items-center justify-center"
+                  className="w-full absolute  min-h-[100vh]  flex items-center justify-center"
                   style={{
                     top: `${index * 100}%`,
                     y: index === 1 ? y1 : index === 2 ? y2 : index === 3 ? y3 : undefined,
                     backgroundColor: `hsl(${index * 30}, 80%, 80%)`,
                   }}
-                >
-                  <h1 className={`${isTablet ? "text-3xl" : "text-4xl"} text-[#0F3443] font-[600]`}>
-                    {project.heading}
-                  </h1>
+                > 
+                <Link href={project.Link} className="min-w-[90vh] min-h-[80vh] p-10 ">
+                  <Image src={project.src} fill alt="project image" className="cursor-[url('/ProjectCurser.svg'), auto]" />
+                </Link>
                 </motion.div>
               ))}
             </motion.div>
@@ -167,7 +176,7 @@ const AnimatedProjectsView = () => {
                 <div className="w-full lg:h-[50%] md:h-[25%] flex justify-start overflow-hidden">
                   <motion.div className="w-full h-fit flex flex-col gap-10" style={{ y: h1 }}>
                     {projects.map((p) => (
-                      <h1 key={p.id} className={`${isTablet ? "text-6xl" : "text-8xl"} text-[#0F3443] font-[600]`}>
+                      <h1 key={p.id} className={`${isTablet ? "text-6xl" : "text-8xl"} whitespace-nowrap text-[#0F3443] font-[600]`}>
                         {p.title}
                       </h1>
                     ))}
@@ -218,7 +227,7 @@ const MobileProjectsView = () => {
 
   return (
     <>
-      <div className="w-full min-h-screen bg-[#F8FFE5] px-4 py-6">
+      <div className="w-full min-h-screen bg-[#F8FFE5]">
         <Title text="Projects" />
 
         <div className="mt-8 flex justify-center">
@@ -238,14 +247,17 @@ const MobileProjectsView = () => {
                 transition={{ duration: 0.5 }}
                 className="rounded-lg overflow-hidden shadow-md"
               >
+                <Link href={project.Link}>
                 {/* Project Image Section */}
                 <div
-                  className="h-48 w-full flex items-center justify-center"
-                  style={{
-                    backgroundColor: `hsl(${(Number.parseInt(project.number) - 1) * 30 + 0}, 80%, 80%)`,
-                  }}
+                  className="h-48 w-full flex items-center justify-center bg-center bg-cover"
+                  style={{ backgroundImage: `url(${project.src})` }}
                 >
-                  <h2 className="text-3xl font-bold text-[#0F3443]">{project.heading}</h2>
+                  <div
+                    className="text-3xl font-bold text-[#0F3443]"
+                  
+                  >
+                  </div>
                 </div>
 
                 {/* Project Info Section */}
@@ -263,6 +275,7 @@ const MobileProjectsView = () => {
                     ))}
                   </div>
                 </div>
+            </Link>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -307,7 +320,7 @@ const MoreProjectsSection = () => {
     <>
       {/* Display initial or all ProjectContainers based on state */}
       <AnimatePresence initial={false}>
-        {(showAllMoreProjects ? MoreProject : MoreProject.slice(0, initialMoreProjectsCount)).map(({ id, title, src }, index: number) => (
+        {(showAllMoreProjects ? MoreProject : MoreProject.slice(0, initialMoreProjectsCount)).map(({ id, title, src,Link }, index: number) => (
           <motion.div
             key={id}
             initial={{ opacity: 0 }}
@@ -315,7 +328,7 @@ const MoreProjectsSection = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
           >
-            <ProjectContainer src={src} title={title} />
+            <ProjectContainer link={Link} src={src} title={title} />
           </motion.div>
         ))}
       </AnimatePresence>
@@ -343,15 +356,15 @@ const DesktopMoreProjectsSection = () => {
     <>
       {/* Display initial or all ProjectContainers based on state */}
       <AnimatePresence initial={false}>
-          {(showAllMoreProjects ? MoreProject : MoreProject.slice(0, initialMoreProjectsCount)).map(({ id, title, src }, index: number) => (
+          {(showAllMoreProjects ? MoreProject : MoreProject.slice(0, initialMoreProjectsCount)).map(({ id, title, src, Link }, index: number) => (
        <motion.div
-            key={index}
+            key={id}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, delay: index * 0.05 }}
           >
-            <ProjectContainer src={src} title={title} />
+            <ProjectContainer link={Link} src={src} title={title} />
           </motion.div>
         ))}
       </AnimatePresence>
