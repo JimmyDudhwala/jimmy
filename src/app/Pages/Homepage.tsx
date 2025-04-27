@@ -9,6 +9,7 @@ import ArrowSvg from '../components/ArrowSvg'
 import ScrollLock from '../components/ScrollLock'
 import Footer from '../components/Footer'
 import Quote from '../components/Quote'
+import SocialMedia from '../components/SocialMedia'
 
 const quote = "Crafting intelligent digital products with thoughtful design and powerful code"
 const highlights = ["Crafting", "digital products", "design", "code"]
@@ -20,7 +21,7 @@ const Homepage = () => {
   return (
     <>
     <ScrollLock locked={isOpen}>
-    <div className="lg:h-screen w-full bg-[#F8FFE5] relative overflow-hidden lg:pb-0 pb-20 ">
+    <div className="lg:h-screen  w-full bg-[#F8FFE5] relative overflow-hidden lg:pb-0 pb-20 ">
       <div className="h-[90%]  w-full bg-[#34E89E] lg:rounded-b-[200px] rounded-b-[60px] relative shadow-2xl flex flex-col gap-10 items-center drop-shadow-2xl">
 
         {/* Cursors - visible only on lg screens */}
@@ -112,9 +113,8 @@ const Homepage = () => {
 
       </div>
     </div>
-    <div className='h-screen w-full bg-[#F8FFE5] flex justify-center  items-center'>
-
-    </div>
+    
+    <SocialMedia />
 
     <Footer/>
    
