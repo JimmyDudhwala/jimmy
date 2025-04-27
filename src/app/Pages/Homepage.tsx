@@ -17,9 +17,6 @@ const Homepage = () => {
 
       const [isOpen, setIsOpen] = useState(false);
 
-
-  
-
   return (
     <>
     <ScrollLock locked={isOpen}>
