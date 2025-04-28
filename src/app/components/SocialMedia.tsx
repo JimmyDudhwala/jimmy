@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const SocialMedia = () => {
@@ -17,18 +18,18 @@ const SocialMedia = () => {
                 Collect my Online Footprints
             </div>
             <div className='flex justify-around items-center lg:w-[60%] gap-2  lg:gap-0  flex-wrap'>
-                <div className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
+                <Link href=""  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
                     <Image src="https://www.svgrepo.com/show/452229/instagram-1.svg" alt="github" width={90} height={90} className='cursor-pointer' />
-                </div>
-                 <div className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
+                </Link >
+                 <Link href=""  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
                     <Image src="https://www.svgrepo.com/show/448234/linkedin.svg" alt="github" width={90} height={90} className='cursor-pointer' />
-                </div>
-                 <div className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
+                </Link >
+                 <Link href=""  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
                     <Image src="https://www.svgrepo.com/show/349537/twitter.svg" alt="github" width={80} height={80} className='cursor-pointer' />
-                </div>
-                 <div className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
+                </Link >
+                 <Link href=""  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
                     <Image src="https://www.svgrepo.com/show/204929/behance.svg" alt="github" width={90} height={90} className='cursor-pointer' />
-                </div>
+                </Link >
                 
             </div>
         </div>
