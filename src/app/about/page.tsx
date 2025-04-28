@@ -38,7 +38,7 @@ const page = () => {
                     </div>
                   </div>
                   <div className="h-[10%] w-full m-5 flex justify-start pl-10 items-center">
-                    <Button text="Resume"/>
+                    <Button text="Resume" link="https://drive.google.com/file/d/1I6qoOhfjpKiv8Njda92vj5jOO8WSR6Ck/view?usp=sharing"/>
                   </div>
                   <div className="relative justify-center items-center h-[50%] w-[80%]">
                     <RandomTools />
@@ -68,7 +68,7 @@ const page = () => {
                     </div>
                   </div>
                   <div className="h-[10%] w-full m-5 flex justify-start pl-10 items-center">
-                    <Button text="Projects" />
+                    <Button text="Projects" link="/projects" />
                   </div>
                   <div className="relative flex justify-center items-center h-[60%] w-[80%]">
                     <div className="absolute md:scale-78 scale-75 lg:scale-90">
@@ -97,7 +97,7 @@ const page = () => {
                     </div>
                   </div>
                   <div className="h-[10%] w-full m-5 flex justify-start pl-10 items-center">
-                    <Button text="Connect" />
+                    <Button text="Connect" link="/contact"/>
                   </div>
                 </div>
               </div>
@@ -120,7 +120,7 @@ const page = () => {
                     </div>
                   </div>
                   <div className="h-[10%] w-full m-5 flex justify-start pl-10 items-center">
-                    <Button text="Blog" />
+                    <Button text="Blog" link="/blog" />
                   </div>
                   <div className="relative w-full ">
                     <div className=" absolute lg:-top-60 -rotate-12 lg:-right-[16%] lg:scale w-[1000px] h-[500px]">

@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div className="w-full min-h-screen bg-[#F8FFE5] flex flex-col justify-center items-center">
       <Title text="Contact" />
-      <div  className="text-4xl lg:text-8xl font-bold mb-4 text-clip  bg-gradient-to-b  from-yellow-400 via-yellow-300/40 to-[#34E89E]/10 bg-clip-text text-transparent translate-y-[50%]">
+      <div  className="text-4xl lg:text-8xl font-bold mb-4 text-clip  bg-gradient-to-b  from-yellow-400 via-yellow-300/50 to-[#F8FFE5] bg-clip-text text-transparent translate-y-[50%]">
         GET IN TOUCH  
       </div>
       <div className="w-[95%] z-10 lg:w-[90%] mb-10 p-6 md:p-10 rounded-3xl shadow-md border-[0.5] bg-[#F8FFE5]/40 border-white drop-shadow-md text-[#0F3443]">

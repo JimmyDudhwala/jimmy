@@ -18,16 +18,16 @@ const SocialMedia = () => {
                 Collect my Online Footprints
             </div>
             <div className='flex justify-around items-center lg:w-[60%] gap-2  lg:gap-0  flex-wrap'>
-                <Link href=""  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
+                <Link href="https://www.instagram.com/jimmydudhwala25/"  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
                     <Image src="https://www.svgrepo.com/show/452229/instagram-1.svg" alt="github" width={90} height={90} className='cursor-pointer' />
                 </Link >
-                 <Link href=""  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
+                 <Link href="https://www.linkedin.com/in/jimmy-dudhwala-3b33a5239/"  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
                     <Image src="https://www.svgrepo.com/show/448234/linkedin.svg" alt="github" width={90} height={90} className='cursor-pointer' />
                 </Link >
-                 <Link href=""  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
+                 <Link href="https://x.com/JimmyDudhwala/"  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
                     <Image src="https://www.svgrepo.com/show/349537/twitter.svg" alt="github" width={80} height={80} className='cursor-pointer' />
                 </Link >
-                 <Link href=""  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
+                 <Link href="https://www.behance.net/jimmydudhwala/"  className='p-2 lg:ml-3 bg-gray-400/10 rounded-2xl'>
                     <Image src="https://www.svgrepo.com/show/204929/behance.svg" alt="github" width={90} height={90} className='cursor-pointer' />
                 </Link >
                 
