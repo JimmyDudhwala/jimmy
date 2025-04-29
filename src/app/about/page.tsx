@@ -9,10 +9,18 @@ import Responsive from "../components/Responsive"
 import Sketch from "../components/Sketch"
 import Image from "next/image"
 import WaveScroll from "../components/Wavescroll"
+import Loading from "../components/Loding"
+import { useState } from "react"
+
+
 
 const page = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  
   return (
-    <div className="w-full h-full">
+     <div className={`relative h-full ${isLoading ? 'overflow-hidden h-screen' : ''}`}>
+       {/* <Loading /> */}
+        {isLoading && <Loading onFinish={() => setIsLoading(false)} />}
       <Title text="About Me" />
       <div className="w-full   bg-[#F8FFE5] flex flex-col items-center justify-center">
         <div className="md:w-[98%] lg:w-[90%] w-[95%]  grid lg:grid-rows-[2fr_0.9fr] md:grid-rows-[2fr_1fr] grid-rows-[2fr_0.7fr]  p-2 md:p-2 lg:p-10 gap-10">

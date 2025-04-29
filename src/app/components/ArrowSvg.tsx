@@ -12,7 +12,7 @@ const ArrowSvg = () => {
           strokeWidth="5"
           fill="none"
           initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
+          whileInView={{ pathLength: 1 }}
           transition={{
             delay: 2,
             duration: 2,

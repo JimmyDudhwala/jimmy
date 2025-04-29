@@ -20,10 +20,10 @@ body {
   cursor: url('/curser.svg'), auto;
 }
 
-/* For WebKit browsers (Chrome, Safari) */
+/* 1. Webkit scrollbar styling */
 body::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 0.1px;
+  height: 0.1px;
 }
 
 body::-webkit-scrollbar-track {
@@ -37,9 +37,10 @@ body::-webkit-scrollbar-thumb {
   background-clip: content-box;
 }
 
-/* Prevent content from shifting when scrollbar appears */
+/* 2. Make scrollbar float (no layout shift) */
 @layer base {
   html {
     overflow-y: overlay;
+    /* overlay makes scrollbar float over content instead of resizing the page */
   }
 }

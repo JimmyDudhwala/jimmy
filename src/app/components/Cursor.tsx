@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 interface CursorProps {
   color: string,
@@ -11,12 +12,16 @@ const Cursor = ({ color, message }: CursorProps) => {
   const [isHovering, setIsHovering] = useState(false)
 
   return (
-    <div className="relative inline-block">
+    <motion.div
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.5, delay: 2.5 }}
+     className="relative inline-block">
       {/* Tooltip that appears on hover */}
       <div
         className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-white text-sm font-medium rounded-md shadow-md 
         transition-all duration-300 whitespace-nowrap z-40
-        ${isHovering ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1 pointer-events-none"}
+        ${isHovering ? "opacity-100 translate-y-0 "  : "opacity-0 translate-y-1 pointer-events-none"}
         border border-gray-100 text-gray-800`}
         style={{
           background: `linear-gradient(135deg, #ffffff, #f5f5f5)`,
@@ -31,7 +36,7 @@ const Cursor = ({ color, message }: CursorProps) => {
       <div
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        className="cursor-pointer transition-transform duration-300 hover:scale-110"
+        className="cursor-pointer transition-transform duration-300 hover:scale-115 hover:rotate-6"
       >
         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -42,7 +47,7 @@ const Cursor = ({ color, message }: CursorProps) => {
           />
         </svg>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

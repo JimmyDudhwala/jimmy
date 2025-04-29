@@ -33,14 +33,14 @@ export default function WaveScroll() {
 
   return (  
     <div ref={scrollContainerRef} className="relative h-[300vh]">
-      <motion.div className="sticky top-0 flex justify-start items-start  h-[90vh]  lg:h-screen w-screen overflow-hidden  bg-transperent">
+      <motion.div className="sticky top-0 flex justify-start items-start  h-[90vh]  lg:h-screen  overflow-hidden  bg-transperent">
          <GridBackground cols={isMobile ? 5 : 10} rows={isMobile ? 6 : 5} lineColor="rgba(100, 100, 100, 0.1)" fadeEdges={true} />
 
         <div className="absolute top-0 flex flex-col justify-start items-start left-[8%]">
                 <Circle big="#34E89E" small="#F8FFE5" text="My Path" />
                 <h1 className="text-4xl mt-10 text-[#0F3443]/80 font-[600]">Discover my Professional path and experiences</h1>
         </div>
-        <motion.div className="flex justify-start w-screen lg:h-[80%] left-0 lg:mt-[15%] md:mt-[5%] -mt-[10%] lg:-translate-x-[30%] md:translate-x-[220%] translate-x-[220%]" style={{ x }}>
+        <motion.div className="flex justify-start w-screen  lg:h-[80%] left-0 lg:mt-[15%] md:mt-[5%] -mt-[10%] lg:-translate-x-[30%] md:translate-x-[220%] translate-x-[220%]" style={{ x }}>
   <div className="relative left-0 flex w-[400vw] h-[30%] items-start justify-start scale-x-200 lg:scale-40 lg:scale-x-80">
     {/* Wave Dots */}
 
@@ -60,7 +60,6 @@ export default function WaveScroll() {
       <WaveDot year="2023" title="College Leadership" text="Joined GDSC as PR Lead, leading four major events. Also became active in coding activities and tech clubs." />
     </div>
 
-    {/* 4 Empty Dots */}
     <div className="absolute lg:-scale-x-80 -scale-120 scale-x-100 top-[50%] lg:top-[165%] left-[50%]">
       <WaveDot year="2023" title="First Internship" text="Worked with Codesoft Solutions as a Frontend Developer."  />
     </div>
