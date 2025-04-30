@@ -50,19 +50,19 @@ const Homepage = () => {
 >
 
         {/* Cursors - visible only on lg screens */}
-        <motion.div style={{y:y2}} className="hidden lg:block absolute top-2/12 left-12">
+        <motion.div style={{y:y2}} className="hidden lg:block absolute z-50 top-2/12 left-1/12">
           <Cursor  message="UI/UX Designer" color="#CFC2FF" />
         </motion.div>
-        <motion.div style={{y:y2}} className="hidden lg:block absolute top-3/12 left-5/12">
+        <motion.div style={{y:y2}} className="hidden lg:block absolute z-50  top-3/12 left-5/12">
           <Cursor message="App developer" color="orange" />
         </motion.div>
-        <motion.div style={{y:y4}} className="hidden lg:block absolute bottom-4/12 left-1/12">
+        <motion.div style={{y:y4}} className="hidden lg:block absolute z-50 bottom-1/12 left-2/12">
           <Cursor message="Full-Stack Developer" color="#FF00DD" />
         </motion.div>
-        <motion.div style={{y:y4}} className="hidden lg:block absolute top-4/12 right-12">
+        <motion.div style={{y:y4}} className="hidden lg:block absolute z-50 top-4/12 right-1/12">
           <Cursor message="AI/ML Explorer" color="purple" />
         </motion.div>
-        <motion.div style={{y:y2}} className="hidden lg:block absolute bottom-2/12 right-1/12">
+        <motion.div style={{y:y2}} className="hidden lg:block absolute z-50 bottom-2/12 right-2/12">
           <Cursor message="System Architect" color="#AB0003" />
         </motion.div>
 
