@@ -1,10 +1,11 @@
 "use client"
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Title from '../components/Title'
 import Circle from '../components/Circle'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import ExperienceCard from '../components/ExperienceCard'
 import Footer from '../components/Footer'
+import Loading from '../components/Loding'
 
 const page = () => {
     const targetElement = useRef(null)
@@ -20,10 +21,13 @@ const page = () => {
     const circleProgress = useTransform(scrollYProgress, [0, 1], [0, 1])
 
 
-
+    const [isLoading, setIsLoading] = useState(true);
     return (
+
         <>
-        <div className='w-full h-full'>
+        <div className={`w-full h-full${isLoading ? 'overflow-hidden h-screen' : ''}`}>
+               {/* <Loading /> */}
+        {isLoading && <Loading onFinish={() => setIsLoading(false)} />}
             <Title text="Experience" />
             <div ref={targetElement} className='w-full h-[300vh] bg-[#F8FFE5]'>
                 <div className='sticky top-0 flex flex-col lg:flex-row w-full h-[100vh] overflow-hidden'>
