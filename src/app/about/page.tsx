@@ -11,6 +11,7 @@ import Image from "next/image"
 import WaveScroll from "../components/Wavescroll"
 import Loading from "../components/Loding"
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 
 
@@ -28,10 +29,28 @@ const page = () => {
           <div className="grid lg:grid-cols-[1fr_1.2fr] lg:grid-rows-none md:grid-rows-none md:grid-cols-[1fr_1fr] grid-rows-[1fr_1fr] gap-5">
             {/* Left Column */}
             <div className="h-full grid lg:grid-rows-[1fr_3fr] grid-rows-[0.6fr_2.5fr] gap-2 ">
-              <div className="">
+                <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 10,
+                }}
+                viewport={{ once: true }}
+                className=""
+                >
                 <Circle big="#34E89E" small="#F8FFE5" text="Why Me?" />
-              </div>
-              <div className="bg-[#C3E3FF] flex justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">
+                </motion.div>
+              <motion.div
+                initial={{ x: -600, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  x: { delay: 0, duration: 2, ease: "easeInOut" },
+                  opacity: { delay: 0, duration: 2, ease: "easeInOut" },
+                }} 
+                viewport={{ once: true }}
+                className="bg-[#C3E3FF] flex justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">
                 <div className="relative w-[99%] h-[99%] border-2 rounded-4xl flex flex-col items-center justify-start">
                   <div className="relative text-[3rem] text-[#0F3443] font-[600] pl-10 pt-3 font-playfair">
                     <Quote quote="build" highlights={["build"]} />
@@ -55,12 +74,22 @@ const page = () => {
                     continue learning ...
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Right Column */}
             <div className="h-full grid grid-rows-[3fr_1.5fr] gap-10 ">
-              <div className="bg-[#FEE3A8] flex flex-col justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">
+              <motion.div
+                initial={{ x: 600, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  x: {  duration: 2, ease: "easeInOut" },
+                  opacity: {  duration: 2, ease: "easeInOut" },
+                }}
+                  viewport={{ once: true }}
+                
+                
+               className="bg-[#FEE3A8] flex flex-col justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">
                 <div className="relative w-[99%] h-[99%] border-2 rounded-4xl flex flex-col items-center justify-start">
                   <div className="relative w-full pl-10 text-[3rem] text-[#0F3443] font-[600] pt-3 font-playfair">
                     <Quote quote="Create" highlights={["Create"]} />
@@ -88,8 +117,16 @@ const page = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="bg-[#FEC5BD] flex flex-col justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">
+              </motion.div>
+               <motion.div
+                initial={{ x: 600, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  x: {  duration: 2, ease: "easeInOut" },
+                  opacity: {  duration: 2, ease: "easeInOut" },
+                }}
+                  viewport={{ once: true }}
+                 className="bg-[#FEC5BD] flex flex-col justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">
                 <div className="relative w-[99%] h-[99%] border-2 rounded-4xl flex flex-col items-center justify-start">
                   <div className="relative w-full pl-10 text-[3rem] text-[#0F3443] font-[600] pt-3 font-playfair">
                     <Quote quote="Collaborate" highlights={["Collaborate"]} />
@@ -108,12 +145,19 @@ const page = () => {
                     <Button text="Connect" link="/contact"/>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
 
           {/* Bottom Section */}
-          <div className="bg-pink-300  flex flex-col justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">
+          <motion.div
+                initial={{ x: 600, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{
+                  x: {  duration: 2, ease: "easeInOut" },
+                  opacity: {  duration: 2, ease: "easeInOut" },
+                }}
+                  viewport={{ once: true }} className="bg-pink-300  flex flex-col justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">
             <div className="relative w-[99.5%] h-[99%] border-2 rounded-4xl flex flex-col items-center justify-start overflow-hidden">
                   <div className="relative w-full pl-10 text-[3rem] text-[#0F3443] font-[600] pt-3 font-playfair">
                     <Quote quote="Innovate" highlights={["Innovate"]} />
@@ -136,7 +180,7 @@ const page = () => {
                     </div>
                   </div>
                 </div>
-          </div>
+          </motion.div>
 
 
         </div>

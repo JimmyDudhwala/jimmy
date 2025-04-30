@@ -24,7 +24,7 @@ const renderQuote: React.FC<QuoteProps> = ({quote, highlights}) => {
                  key={i} className="relative inline-block px-1 mx-[1px] break-words">
               <motion.span
                 initial={{ width: 0 }}
-                animate={{ width: "100%" }}
+                whileInView={{ width: "100%" }}
                 transition={{ duration: 1, delay: 1.5 }}
                 className="absolute bottom-0 left-0 w-full h-1/3 bg-[#FF6D00] z-0 rounded-sm"
               
