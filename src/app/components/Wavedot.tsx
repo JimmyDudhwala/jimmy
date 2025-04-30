@@ -47,7 +47,7 @@ const Wavedot = ({
       {/* Popup */}
       <AnimatePresence>
         {isActive && (
-          <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 lg:mt-5  min-w-[120px] lg:min-w-[480px]">
+          <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 lg:mt-5  min-w-[160px] lg:min-w-[480px]">
             <motion.div
               initial={{ opacity: 0, y: 10, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -55,7 +55,7 @@ const Wavedot = ({
               transition={{ type: "spring", stiffness: 500, damping: 25 }}
               className="relative"
             >
-              <div className="bg-white px-6 py-5 rounded-xl border-2 border-[#0F3443] shadow-xl space-y-3 ">
+              <div className="bg-white lg:px-6 lg:py-5 px-2 py-2 rounded-xl border-2 border-[#0F3443] shadow-xl space-y-3 ">
                 <p className="text-sm lg:text-2xl rotate-180 lg:rotate-y-0 rotate-y-180 text-gray-700 leading-relaxed">
                   {text}
                 </p>

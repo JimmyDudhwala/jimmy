@@ -1,16 +1,22 @@
+"use client"
 import Title from "../components/Title"
 import Footer from "../components/Footer"
 import Link from "next/link"
 import Circle from "../components/Circle"
+import Loading from "../components/Loding"
+import { useState } from "react"
 
 const page = () => {
+  const [isLoading, setIsLoading] = useState(true);
   return (
-    <div className="w-full min-h-screen bg-[#F8FFE5] flex flex-col justify-center items-center">
+    <div className={`relative min-h-screen flex flex-col justify-center items-center bg-[#F8FFE5] ${isLoading ? 'overflow-hidden h-screen' : ''}`}>
+       {/* <Loading /> */}
+        {isLoading && <Loading onFinish={() => setIsLoading(false)} />}
       <Title text="Contact" />
-      <div  className="text-4xl lg:text-8xl font-bold mb-4 text-clip  bg-gradient-to-b  from-yellow-400 via-yellow-300/50 to-[#F8FFE5] bg-clip-text text-transparent translate-y-[50%]">
+      <div  className="text-4xl lg:text-8xl font-bold mb-4 text-clip  bg-gradient-to-b  from-orange-500 via-yellow-300/50 to-[#F8FFE5] bg-clip-text text-transparent translate-y-[50%]">
         GET IN TOUCH  
       </div>
-      <div className="w-[95%] z-10 lg:w-[90%] mb-10 p-6 md:p-10 rounded-3xl shadow-md border-[0.5] bg-[#F8FFE5]/40 border-white drop-shadow-md text-[#0F3443]">
+      <div className="w-[95%] z-10 lg:w-[90%] mb-10 p-6 md:p-10 rounded-3xl shadow-md border-[0.5]  bg-[url(/sky.png)] border-white drop-shadow-md text-[#0F3443]">
         {/* Three-section flex container */}
         <div className="flex flex-col  justify-between lg:items-end item-center gap-8 lg:gap-8 min-h-[60vh]">
 

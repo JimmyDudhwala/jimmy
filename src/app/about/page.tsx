@@ -43,7 +43,7 @@ const page = () => {
                 <Circle big="#34E89E" small="#F8FFE5" text="Why Me?" />
                 </motion.div>
               <motion.div
-                initial={{ x: -600, opacity: 0 }}
+                initial={{ x: -200, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{
                   x: { delay: 0, duration: 2, ease: "easeInOut" },
@@ -80,7 +80,7 @@ const page = () => {
             {/* Right Column */}
             <div className="h-full grid grid-rows-[3fr_1.5fr] gap-10 ">
               <motion.div
-                initial={{ x: 600, opacity: 0 }}
+                initial={{ x: 200, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{
                   x: {  duration: 2, ease: "easeInOut" },
@@ -119,7 +119,7 @@ const page = () => {
                 </div>
               </motion.div>
                <motion.div
-                initial={{ x: 600, opacity: 0 }}
+                initial={{ x: 200, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{
                   x: {  duration: 2, ease: "easeInOut" },
@@ -151,7 +151,7 @@ const page = () => {
 
           {/* Bottom Section */}
           <motion.div
-                initial={{ x: 600, opacity: 0 }}
+                initial={{ x: 200, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{
                   x: {  duration: 2, ease: "easeInOut" },

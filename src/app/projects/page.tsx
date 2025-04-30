@@ -10,6 +10,7 @@ import Quote from "../components/Quote"
 import Footer from "../components/Footer"
 import Image from "next/image"
 import Link from "next/link"
+import Loading from "../components/Loding"
 
 const projects = [
   {
@@ -115,8 +116,12 @@ const AnimatedProjectsView = () => {
 
   const circleProgress = useTransform(scrollYProgress, [0, 1], [0, 1])
 
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
-    <div className="w-full h-full">
+    <div className={`relative h-full ${isLoading ? 'overflow-hidden h-screen' : ''}`}>
+       {/* <Loading /> */}
+        {isLoading && <Loading onFinish={() => setIsLoading(false)} />}
       <Title text="Projects" />
       <div ref={scrollContainerRef} className="relative w-full h-[400vh] bg-[#F8FFE5]">
         <div className="w-full sticky top-0 h-screen flex items-start justify-center overflow-hidden">
