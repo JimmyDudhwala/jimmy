@@ -21,11 +21,12 @@ const page = () => {
 
   const [isLoading, setIsLoading] = useState(true);
   return (
-    <div ref={container} className={`relative min-h-screen flex flex-col justify-center items-center bg-[#F8FFE5] ${isLoading ? 'overflow-hidden h-screen' : ''}`}>
+    <div ref={container} className={`relative w-full h-full bg-[#F8FFE5] ${isLoading ? 'overflow-hidden h-screen' : ''}`}>
        {/* <Loading /> */}
         {isLoading && <Loading onFinish={() => setIsLoading(false)} />}
       <Title text="Contact" />
-      <motion.div style={{y:y}}  className="text-4xl lg:text-8xl font-bold mb-4 text-clip  bg-gradient-to-b from-orange-500 via-yellow-300/50 to-[#F8FFE5] bg-clip-text text-transparent ">
+      <div className="flex flex-col justify-center items-center w-full h-full">
+      <motion.div style={{y:y}}  className="text-4xl lg:text-8xl font-bold mb-4 text-clip  bg-gradient-to-b  from-orange-500 via-yellow-300/50 to-[#F8FFE5] bg-clip-text text-transparent ">
         GET IN TOUCH  
       </motion.div>
       <div className="w-[95%] z-10 lg:w-[90%] mb-10 p-6 md:p-10 rounded-3xl shadow-md border-[0.5]  bg-[url(/sky.png)] border-white drop-shadow-md text-[#0F3443]">
@@ -90,6 +91,7 @@ const page = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
       <Footer />
     </div>
