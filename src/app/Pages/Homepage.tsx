@@ -37,8 +37,7 @@ const Homepage = () => {
 
   return (
     <>
-    <ScrollLock locked={isOpen}>
-    <div ref={container} className="lg:h-screen  w-full bg-[#F8FFE5] relative overflow-hidden lg:pb-0 pb-20 ">
+    <div ref={container} className="lg:h-screen z-40  w-full bg-[#F8FFE5] relative overflow-hidden lg:pb-0 pb-20 ">
 <motion.div 
   initial={{ height: 0,}}
 
@@ -67,7 +66,7 @@ const Homepage = () => {
         </motion.div>
 
         {/* Top Section */}
-        <div className="w-full lg:w-[60%] h-auto lg:h-[25%] mt-10 lg:m-0 flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between">
+        <div className="w-full z-100 lg:w-[60%] h-auto lg:h-[25%] mt-10 lg:m-0 flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-between">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{  opacity: 1 }}
@@ -81,16 +80,10 @@ const Homepage = () => {
             <Tiny width={100} height={100} src="/hash.svg" />
           </motion.div>
           
-           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{  opacity: 1 }}
-            transition={{
-              opacity: { delay: 0.8, duration: 1, ease: "easeInOut" },
-            }}
-          >
 
-          <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
-      </motion.div>
+        <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
+
+
       
           
          
@@ -194,7 +187,6 @@ const Homepage = () => {
 
     <Footer/>
    
-    </ScrollLock>
     </>
   )
 }

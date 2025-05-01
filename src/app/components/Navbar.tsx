@@ -19,7 +19,16 @@ const Navbar = ({isOpen, setIsOpen}:NavbarProps) => {
 
     return (
         <>
-            <div className='h-[100px] w-[320px] rounded-3xl bg-[#F8FFE5]   shadow-2xl drop-shadow-xl z-100'>
+            <motion.div
+             initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: 0.8,
+                duration: 1,
+                ease: "easeInOut",
+              }}
+        
+            className='h-[100px] w-[320px] rounded-3xl bg-[#F8FFE5]   shadow-2xl drop-shadow-xl z-100'>
                 <div className='flex justify-evenly items-center h-full w-full gap-10 fixed'>
                     <div className='h-[80%] w-[60%] bg-[#34E89E] rounded-[20px]  flex justify-evenly   items-center'>
                         <div className='w-[25%] h-[60%] bg-[#34E89E] shadow-2xl drop-shadow-xl relative border-[0.5px] rounded-[15px] flex justify-center items-center'>
@@ -62,7 +71,7 @@ const Navbar = ({isOpen, setIsOpen}:NavbarProps) => {
                         </motion.div>
                     </AnimatePresence>
                 </div>
-            </div>
+            </motion.div>
              <Sidebar isOpen={isOpen} />
         </>
     )
