@@ -241,7 +241,7 @@ const MobileProjectsView = () => {
           </div>
         </div>
 
-        <div className="mt-12 space-y-12">
+        <div className="mt-12 space-y-12 p-4">
           <AnimatePresence initial={false}>
             {displayedProjects.map((project) => (
               <motion.div

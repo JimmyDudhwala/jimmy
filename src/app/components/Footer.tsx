@@ -24,7 +24,7 @@ const Footer = () => {
 
         <div className="mt-6 xl:mt-0 text-center xl:text-right space-y-1 text-[var(--bg)]">
           <div>
-            Email: <a href="mailto:jimmyfreelance@gmail.com" className="underline">jimmydudhwala25@gmail.com</a>
+            Email: <a href="mailto:jimmyfreelance@gmail.com" className="underline">jimmyfreelance@gmail.com@gmail.com</a>
           </div>
           <div>
             Phone: <a href="tel:+919925864886" className="underline">+91 99258 64886</a>
