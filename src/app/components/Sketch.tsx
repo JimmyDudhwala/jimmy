@@ -14,7 +14,7 @@ const Sketch = () => {
           strokeWidth="55"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
-          animate={{ pathLength: isInView ? 1 : 0 }}
+          whileInView={{ pathLength: isInView ? 1 : 0 }}
           transition={{
             delay: 1,
             duration: 2.5,

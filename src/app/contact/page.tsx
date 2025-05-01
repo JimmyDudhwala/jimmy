@@ -4,18 +4,30 @@ import Footer from "../components/Footer"
 import Link from "next/link"
 import Circle from "../components/Circle"
 import Loading from "../components/Loding"
-import { useState } from "react"
+import { useRef, useState } from "react"
+import { useScroll, useTransform } from "motion/react"
+import { motion } from "framer-motion"
+
+
 
 const page = () => {
+
+    const container = useRef<HTMLDivElement>(null);
+     const {scrollYProgress} = useScroll({
+        target: container,
+        offset: ["start end", "end start"]
+      });
+       const y = useTransform(scrollYProgress,[0.4, 0.7], ["0%", "80%"]);
+
   const [isLoading, setIsLoading] = useState(true);
   return (
-    <div className={`relative min-h-screen flex flex-col justify-center items-center bg-[#F8FFE5] ${isLoading ? 'overflow-hidden h-screen' : ''}`}>
+    <div ref={container} className={`relative min-h-screen flex flex-col justify-center items-center bg-[#F8FFE5] ${isLoading ? 'overflow-hidden h-screen' : ''}`}>
        {/* <Loading /> */}
         {isLoading && <Loading onFinish={() => setIsLoading(false)} />}
       <Title text="Contact" />
-      <div  className="text-4xl lg:text-8xl font-bold mb-4 text-clip  bg-gradient-to-b  from-orange-500 via-yellow-300/50 to-[#F8FFE5] bg-clip-text text-transparent translate-y-[50%]">
+      <motion.div style={{y:y}}  className="text-4xl lg:text-8xl font-bold mb-4 text-clip  bg-gradient-to-b from-orange-500 via-yellow-300/50 to-[#F8FFE5] bg-clip-text text-transparent ">
         GET IN TOUCH  
-      </div>
+      </motion.div>
       <div className="w-[95%] z-10 lg:w-[90%] mb-10 p-6 md:p-10 rounded-3xl shadow-md border-[0.5]  bg-[url(/sky.png)] border-white drop-shadow-md text-[#0F3443]">
         {/* Three-section flex container */}
         <div className="flex flex-col  justify-between lg:items-end item-center gap-8 lg:gap-8 min-h-[60vh]">

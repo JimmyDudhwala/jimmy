@@ -157,7 +157,7 @@ const page = () => {
                   x: {  duration: 2, ease: "easeInOut" },
                   opacity: {  duration: 2, ease: "easeInOut" },
                 }}
-                  viewport={{ once: true }} className="bg-pink-300  flex flex-col justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">
+                  viewport={{ once: true }} className="bg-pink-300 group  flex flex-col justify-center items-center rounded-4xl drop-shadow-xl shadow-xl">
             <div className="relative w-[99.5%] h-[99%] border-2 rounded-4xl flex flex-col items-center justify-start overflow-hidden">
                   <div className="relative w-full pl-10 text-[3rem] text-[#0F3443] font-[600] pt-3 font-playfair">
                     <Quote quote="Innovate" highlights={["Innovate"]} />
@@ -175,7 +175,7 @@ const page = () => {
                     <Button text="Blog" link="/blog" />
                   </div>
                   <div className="relative w-full ">
-                    <div className=" absolute lg:-top-60 -rotate-12 lg:-right-[16%] lg:scale w-[1000px] h-[500px]">
+                    <div className=" absolute lg:-top-60 transition-all duration-300 ease-in-out group-hover:scale-105  group-hover:-rotate-[15deg]  -rotate-[12deg] lg:-right-[16%] lg:scale w-[1000px] h-[500px]">
                       <Image src="/Codesnippet.svg" alt="Code Snippet" fill className="hover:cursor-[url('/Input.svg'),auto]"/>
                     </div>
                   </div>
