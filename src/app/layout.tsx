@@ -16,8 +16,11 @@ const gloriaHallelujah = Gloria_Hallelujah({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Software Engineer",
+  title: "JIMMY | Software Engineer",
   description: "Crafting intelligent digital products with thoughtful design and powerful code.",
+  icons: {
+    icon: '/vercel.svg', // or '/favicon.png'
+  },
 };
 
 export default function RootLayout({
