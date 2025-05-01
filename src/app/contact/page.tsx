@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 
 
 
-const page = () => {
+const Page = () => {
 
     const container = useRef<HTMLDivElement>(null);
      const {scrollYProgress} = useScroll({
@@ -98,4 +98,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

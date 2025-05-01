@@ -7,7 +7,7 @@ import ExperienceCard from '../components/ExperienceCard'
 import Footer from '../components/Footer'
 import Loading from '../components/Loding'
 
-const page = () => {
+const Page = () => {
     const targetElement = useRef(null)
     const { scrollYProgress } = useScroll({
         target: targetElement,
@@ -92,4 +92,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

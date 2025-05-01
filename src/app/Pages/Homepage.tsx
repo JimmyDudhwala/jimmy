@@ -31,7 +31,7 @@ const Homepage = () => {
       const y4 = useTransform(scrollYProgress,[0.5, 0.7], ["0%", "-200%"]);
       const y5 = useTransform(scrollYProgress,[0.4, 0.7], ["0%", "-100%"]);
       const y6 = useTransform(scrollYProgress,[0.4, 0.7], ["0%", "3%"]);
-      const r1 = useTransform(scrollYProgress,[0, 1], [10, 300]);
+      // const r1 = useTransform(scrollYProgress,[0, 1], [10, 300]);
 
       const [isOpen, setIsOpen] = useState(false);
 

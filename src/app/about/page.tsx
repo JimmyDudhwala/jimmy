@@ -15,7 +15,7 @@ import { motion } from "framer-motion"
 
 
 
-const page = () => {
+const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
   
   return (
@@ -194,4 +194,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

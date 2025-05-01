@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Homepage from './Pages/Homepage'
 import Loading from './components/Loding'
 
-const page = () => {
+const Page = () => {
    const [isLoading, setIsLoading] = useState(true);
 
   return (
@@ -14,4 +14,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
