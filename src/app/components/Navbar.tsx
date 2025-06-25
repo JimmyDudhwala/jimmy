@@ -1,9 +1,10 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import { AnimatePresence, motion } from "framer-motion";
 import Sidebar from './Sidebar';
+import axios from 'axios';
 
 interface NavbarProps {
     isOpen: boolean;
@@ -12,10 +13,42 @@ interface NavbarProps {
 
 const Navbar = ({isOpen, setIsOpen}:NavbarProps) => {
 
+    const [status, setStatus] = useState<'Available' | 'Occupied'>('Available')
+    const [isActive, setIsActive] = useState(true)
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
+    const fetchData = async () => {
+        try {
+          const result = await axios.get('http://16.170.203.105:5000/api/v1/getSlot', {
+            withCredentials: true
+          });
+      
+          const slot = result.data.currentSlot;
+      
+          setStatus(slot.status === 'available' ? 'Available' : 'Occupied');
+          setIsActive(slot.isActive);
+      
+        } catch (error) {
+          console.error('Error fetching slot:', error);
+        }
+      };
+      
+      
+
+    useEffect( () => {
+        // Initial fetch
+        fetchData()
+        console.log(status)
+    
+        // // Listen for new todos
+        // socket.on('newTodo', (todo) => {
+        //   setTodos((prev) => [...prev, todo]);
+        // });
+    
+        // return () => socket.disconnect();
+      }, []);
 
     return (
         <>
@@ -45,14 +78,14 @@ const Navbar = ({isOpen, setIsOpen}:NavbarProps) => {
                                     repeatType: "loop",
                                     repeatDelay: 0.1,
                                 }}
-                                className='w-[85%] h-[85%] border-6 border-[#0F3443] rounded-full absolute'
+                                className={`w-[85%] h-[85%] border-6 ${isActive ? "border-[#0F3443]": "border-red-500"} rounded-full absolute`}
 
                             />
                             {/* Static child circle */}
-                            <div className='w-[40%] h-[40%] bg-[#0F3443] rounded-full z-10'></div>
+                            <div className={`w-[40%] h-[40%] ${isActive ? "bg-[#0F3443]": "bg-red-500"} rounded-full z-10`}></div>
                         </div>
 
-                        <div className='text-2xl  text-[#0F3443] font-playfair font-[800]'>Available</div>
+                        <div className={`text-2xl   ${isActive ? "text-[#0F3443]": "text-red-500"} font-playfair font-[800]`}>{status}</div>
                     </div>
                     <AnimatePresence mode="wait">
                         <motion.div

@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Title from "../components/Title"
 import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion"
 import Circle from "../components/Circle"
@@ -11,90 +11,104 @@ import Footer from "../components/Footer"
 import Image from "next/image"
 import Link from "next/link"
 import Loading from "../components/Loding"
-
-const projects = [
-  {
-    id: 1,
-    number: "1",
-    Link:"https://jimmydudhwala.github.io/BookMyShow/",
-    src:"/BMSproject.jpg",
-    title: "Bookmyshow",
-    heading: "Project1",
-    descriptionLines: [
-      "I built a BookMyShow clone project.",
-      "JavaScript powers every feature you see.",
-      "From movies to events, it works smoothly.",
-      "Clean UI with real-world booking flow.",
-      "Built for fun and learning.",
-    ],
-  },
+import axios from "axios"
 
 
-  {
-  id: 2,
-  number: "2",
-  Link:"https://jimmyportfolio.vercel.app/",
-  title: "ProTemplate",
-  src: "/Portfolio.jpg",
-  heading: "Project3",
-  descriptionLines: [
-    "Built a clean and modern portfolio template.",
-    "Showcase projects, skills, and experience effortlessly.",
-    "Responsive design for all screen sizes.",
-    "Customizable sections for personal branding.",
-    "Easy-to-use layout with smooth animations."
-  ]
-},
-{
-  id: 3,
-  number: "3",
-  src: "/Shopping.jpg",
-  title: "ShopCart",
-  Link:"https://jimmydudhwala.github.io/shoppingCart/",
-  heading: "Project4",
-  descriptionLines: [
-    "eCommerce app with Redux Toolkit.",
-    "Real-time cart updates.",
-    "Secure checkout integration.",
-    "Dynamic cart functionality.",
-    "Responsive with React.js and Tailwind."
-  ]
-},
-  {
-  id: 4,
-  number: "4",
-  src: "/Bloodbank.jpg",
-  Link:"https://github.com/JimmyDudhwala/redpluse",
-  title: "RED +",
-  heading: "Project2",
-  descriptionLines: [
-    "Built a blood donation platform.",
-    "Find nearby blood banks & Events easily.",
-    "BloodBank Dashboard with blood stocks updates",
-    "from Event Management to Donor Registration.",
-    "Made with Nextjs and Mongo.",
-  ],
-},
-]
+interface Projects {
+  id: number
+  Link: string
+  src: string
+  title: string
+  descriptionLines: string[]
+}
 
-  const MoreProject = [
-    {id:"1",Link:"https://jimmydudhwala.github.io/ExpenseTracker/", title: "Expense Tracker ",src: "/MoreProjects/ExpenseTrack.jpg"},
-    {id:"2",Link:"https://tastezy-services.vercel.app/", title: "SAAS template",src: "/MoreProjects/Saas.png"},
-    {id:"3",Link:"https://codepen.io/JimmyDudhwala/pen/mdgXNxr", title: "Music Palyer",src: "/MoreProjects/Music.jpg"},
-    {id:"4",Link:"https://codepen.io/JimmyDudhwala/pen/xxepVOd", title: "Guess the Number",src: "/MoreProjects/Guess.png"},
-  ]
+interface ProjectFetched {
+  id:number,
+  link:string,
+  image:string,
+  title:string,
+  points:string[]
+}
+
+interface MoreProjects {
+  id: number
+  Link: string
+  src: string
+  title: string
+}
+
+interface MoreProjectsFetched {
+  id:number,
+  link:string,
+  image:string,
+  title:string,
+}
+
 
 const ProjectsPage = () => {
   const deviceType = useDeviceType()
+  const [project, setProject] = useState<Projects[]>([])
+  const [moreProject, setMoreProject] = useState<MoreProjects[]>([])
 
-  if (deviceType === "mobile") {
-    return <MobileProjectsView />
+  const fetchProjects = async () => {
+    try {
+      const result = await axios.get("http://16.170.203.105:5000/api/v1/getAllProjects", {
+        withCredentials: true,
+      })
+      console.log(result.data.projects)
+      const transformedProjects: Projects[] = result.data.projects.map((project: ProjectFetched, index: number) => ({
+        id: project.id,
+        number: (index + 1).toString(),
+        Link: project.link,
+        src: project.image,
+        title: project.title,
+        descriptionLines: project.points || [
+          "Project description line 1",
+          "Project description line 2",
+          "Project description line 3",
+          "Project description line 4",
+          "Project description line 5",
+        ],
+      }))
+      setProject(transformedProjects)
+    } catch (error) {
+      
+    }
   }
 
-  return <AnimatedProjectsView />
+  const fetchMinorProjects = async () => {
+    try {
+      const result = await axios.get("http://16.170.203.105:5000/api/v1/getAllMinorProjects", {
+        withCredentials: true,
+      })
+      console.log(result.data.projects)
+      const transformedProjects: Projects[] = result.data.projects.map((project: MoreProjectsFetched, index: number) => ({
+        id: project.id,
+        number: (index + 1).toString(),
+        Link: project.link,
+        src: project.image,
+        title: project.title,
+      }))
+      setMoreProject(transformedProjects)
+    } catch (error) {
+      
+    }
+  }
+
+  useEffect(()=>{
+    fetchProjects()
+    console.log(project)
+    fetchMinorProjects()
+  })
+
+  if (deviceType === "mobile") {
+    return <MobileProjectsView projects={project} MoreProject={moreProject} />
+  }
+
+  return <AnimatedProjectsView projects={project} MoreProject={moreProject} />
 }
 
-const AnimatedProjectsView = () => {
+const AnimatedProjectsView = ({ projects, MoreProject }: { projects: Projects[] | undefined; MoreProject: MoreProjects[] | undefined }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const deviceType = useDeviceType()
   const isTablet = deviceType === "tablet"
@@ -127,21 +141,21 @@ const AnimatedProjectsView = () => {
         <div className="w-full sticky top-0 h-screen flex items-start justify-center overflow-hidden">
           <div className="flex w-full h-[100vh] items-center justify-center">
             <motion.div className={`relative border-black w-1/2 h-full`}>
-              {projects.map((project, index) => (
+                {projects?.map((project: Projects, index: number) => (
                 <motion.div
                   key={project.id}
                   className="w-full absolute  min-h-[100vh]  flex items-center justify-center"
                   style={{
-                    top: `${index * 100}%`,
-                    y: index === 1 ? y1 : index === 2 ? y2 : index === 3 ? y3 : undefined,
-                    backgroundColor: `hsl(${index * 30}, 80%, 80%)`,
+                  top: `${index * 100}%`,
+                  y: index === 1 ? y1 : index === 2 ? y2 : index === 3 ? y3 : undefined,
+                  backgroundColor: `hsl(${index * 30}, 80%, 80%)`,
                   }}
                 > 
                 <Link href={project.Link} className="min-w-[90vh] min-h-[80vh] p-10 ">
                   <Image src={project.src} fill alt="project image" className="cursor-[url('/ProjectCurser.svg'), auto]" />
                 </Link>
                 </motion.div>
-              ))}
+                ))}
             </motion.div>
             <div className={`absolute ${isTablet ? "top-[30%] left-[42%]" : "top-[35%] left-[45%]"}`}>
               <div className={`absolute ${isTablet ? "top-[12%] -left-[8%] opacity-0" : "top-[14%] -left-[5%]"}`}>
@@ -168,19 +182,19 @@ const AnimatedProjectsView = () => {
               <div className="w-full h-[33%] gap-10 flex flex-col items-start justify-start">
                 <div className="w-full lg:h-[25%] md:h-[18%] overflow-hidden">
                   <motion.div className="w-full h-fit" style={{ y: h1 }}>
-                    {projects.map((p) => (
+                    {projects?.map((p, i) => (
                       <h1
                         key={p.id}
                         className={`text-6xl text-[#0F3443] font-[600] bg-[#F8FFE5]`}
                       >
-                        {p.number}
+                        {i+1}
                       </h1>
                     ))}
                   </motion.div>
                 </div>
-                <div className="w-full lg:h-[50%] md:h-[25%] flex justify-start overflow-hidden">
+                <div className="w-full lg:h-[49.4%] md:h-[25%] flex justify-start overflow-hidden">
                   <motion.div className="w-full h-fit flex flex-col gap-10" style={{ y: h1 }}>
-                    {projects.map((p) => (
+                    {projects?.map((p) => (
                       <h1 key={p.id} className={`${isTablet ? "text-6xl" : "text-8xl"} whitespace-nowrap text-[#0F3443] font-[600]`}>
                         {p.title}
                       </h1>
@@ -191,9 +205,9 @@ const AnimatedProjectsView = () => {
 
               <div className="w-full h-[50%] flex flex-col justify-end pb-4 items-center">
                 {[0, 1, 2, 3, 4].map((lineIndex) => (
-                  <div key={lineIndex} className="w-full lg:h-[10%] md:h-[5%] flex justify-start overflow-hidden">
+                  <div key={lineIndex} className="w-full lg:h-[9%] md:h-[5%] flex justify-start overflow-hidden">
                     <motion.div className="w-full h-fit flex flex-col" style={{ y: h1 }}>
-                      {projects.map((p) => (
+                      {projects?.map((p) => (
                         <div
                           key={p.id}
                           className={`whitespace-nowrap ${isTablet ? "text-xl" : "text-3xl"} w-full text-[#0F3443] font-[600]`}
@@ -217,7 +231,7 @@ const AnimatedProjectsView = () => {
           </div>
 
           {/* Projects with View More/Less functionality */}
-          <DesktopMoreProjectsSection />
+          <DesktopMoreProjectsSection  moreProjects={MoreProject as MoreProjects[]}  />
         </div>
       </div>
       <Footer />
@@ -225,10 +239,10 @@ const AnimatedProjectsView = () => {
   )
 }
 
-const MobileProjectsView = () => {
+const MobileProjectsView =  ({ projects, MoreProject }: { projects: Projects[] | undefined; MoreProject: MoreProjects[] | undefined }) => {
   const [showAllProjects, setShowAllProjects] = useState(false)
   const initialProjectCount = 3
-  const displayedProjects = showAllProjects ? projects : projects.slice(0, initialProjectCount)
+  const displayedProjects = showAllProjects ? projects : projects?.slice(0, initialProjectCount)
 
   return (
     <>
@@ -243,7 +257,7 @@ const MobileProjectsView = () => {
 
         <div className="mt-12 space-y-12 p-4">
           <AnimatePresence initial={false}>
-            {displayedProjects.map((project) => (
+            {displayedProjects?.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0 }}
@@ -268,7 +282,7 @@ const MobileProjectsView = () => {
                 {/* Project Info Section */}
                 <div className="bg-white p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="text-4xl font-bold text-[#0F3443]">{project.number}</span>
+                    <span className="text-4xl font-bold text-[#0F3443]">{index+1}</span>
                     <h3 className="text-2xl font-bold text-[#0F3443]">{project.title}</h3>
                   </div>
 
@@ -305,7 +319,7 @@ const MobileProjectsView = () => {
 
             <div className="grid grid-cols-1 gap-5">
               {/* Add useState for more projects section */}
-              <MoreProjectsSection />
+              <MoreProjectsSection moreProjects={MoreProject as MoreProjects[]} />
             </div>
           </div>
         </div>
@@ -317,7 +331,7 @@ const MobileProjectsView = () => {
   )
 }
 
-const MoreProjectsSection = () => {
+const MoreProjectsSection = ({ moreProjects }: { moreProjects: MoreProjects[] }) => {
   const [showAllMoreProjects, setShowAllMoreProjects] = useState(false)
   const initialMoreProjectsCount = 2
 
@@ -325,7 +339,7 @@ const MoreProjectsSection = () => {
     <>
       {/* Display initial or all ProjectContainers based on state */}
       <AnimatePresence initial={false}>
-        {(showAllMoreProjects ? MoreProject : MoreProject.slice(0, initialMoreProjectsCount)).map(({ id, title, src,Link }, index: number) => (
+        {(showAllMoreProjects ? moreProjects : moreProjects.slice(0, initialMoreProjectsCount)).map(({ id, title, src,Link }, index: number) => (
           <motion.div
             key={id}
             initial={{ opacity: 0 }}
@@ -353,7 +367,7 @@ const MoreProjectsSection = () => {
   )
 }
 
-const DesktopMoreProjectsSection = () => {
+const DesktopMoreProjectsSection = ({ moreProjects }: { moreProjects: MoreProjects[] }) => {
   const [showAllMoreProjects, setShowAllMoreProjects] = useState(false)
    const initialMoreProjectsCount = 2
    
@@ -361,7 +375,7 @@ const DesktopMoreProjectsSection = () => {
     <>
       {/* Display initial or all ProjectContainers based on state */}
       <AnimatePresence initial={false}>
-          {(showAllMoreProjects ? MoreProject : MoreProject.slice(0, initialMoreProjectsCount)).map(({ id, title, src, Link }, index: number) => (
+          {(showAllMoreProjects ? moreProjects : moreProjects.slice(0, initialMoreProjectsCount)).map(({ id, title, src, Link }, index: number) => (
        <motion.div
             key={id}
             initial={{ opacity: 0 }}
