@@ -13,7 +13,6 @@ import Link from "next/link"
 import Loading from "../components/Loding"
 import axios from "axios"
 
-
 interface Projects {
   id: number
   Link: string
@@ -55,7 +54,6 @@ const ProjectsPage = () => {
       const result = await axios.get("http://16.170.203.105:5000/api/v1/getAllProjects", {
         withCredentials: true,
       })
-      console.log(result.data.projects)
       const transformedProjects: Projects[] = result.data.projects.map((project: ProjectFetched, index: number) => ({
         id: project.id,
         number: (index + 1).toString(),
@@ -71,8 +69,10 @@ const ProjectsPage = () => {
         ],
       }))
       setProject(transformedProjects)
+     
     } catch (error) {
-      
+      console.log(error)
+    }finally{
     }
   }
 
@@ -81,7 +81,6 @@ const ProjectsPage = () => {
       const result = await axios.get("http://16.170.203.105:5000/api/v1/getAllMinorProjects", {
         withCredentials: true,
       })
-      console.log(result.data.projects)
       const transformedProjects: Projects[] = result.data.projects.map((project: MoreProjectsFetched, index: number) => ({
         id: project.id,
         number: (index + 1).toString(),
@@ -91,24 +90,28 @@ const ProjectsPage = () => {
       }))
       setMoreProject(transformedProjects)
     } catch (error) {
-      
+      console.log(error)
+    }finally{
+
     }
   }
 
   useEffect(()=>{
     fetchProjects()
-    console.log(project)
     fetchMinorProjects()
   })
 
+
   if (deviceType === "mobile") {
+
+  
     return <MobileProjectsView projects={project} MoreProject={moreProject} />
   }
 
-  return <AnimatedProjectsView projects={project} MoreProject={moreProject} />
+  return <AnimatedProjectsView  projects={project} MoreProject={moreProject} />
 }
 
-const AnimatedProjectsView = ({ projects, MoreProject }: { projects: Projects[] | undefined; MoreProject: MoreProjects[] | undefined }) => {
+const AnimatedProjectsView = ({ projects, MoreProject }: { projects: Projects[] | undefined; MoreProject: MoreProjects[] | undefined}) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const deviceType = useDeviceType()
   const isTablet = deviceType === "tablet"
@@ -131,6 +134,8 @@ const AnimatedProjectsView = ({ projects, MoreProject }: { projects: Projects[] 
   const circleProgress = useTransform(scrollYProgress, [0, 1], [0, 1])
 
   const [isLoading, setIsLoading] = useState(true);
+  
+
 
   return (
     <div className={`relative h-full ${isLoading ? 'overflow-hidden h-screen' : ''}`}>

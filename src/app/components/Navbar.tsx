@@ -40,15 +40,13 @@ const Navbar = ({isOpen, setIsOpen}:NavbarProps) => {
     useEffect( () => {
         // Initial fetch
         fetchData()
-        console.log(status)
-    
         // // Listen for new todos
         // socket.on('newTodo', (todo) => {
         //   setTodos((prev) => [...prev, todo]);
         // });
     
         // return () => socket.disconnect();
-      }, []);
+      });
 
     return (
         <>
