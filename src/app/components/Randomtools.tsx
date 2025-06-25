@@ -22,7 +22,19 @@ const tools = [
   { id: 15, name: "AWS", src: "https://www.svgrepo.com/show/373458/aws.svg" },
   { id: 16, name: "Redux", src: "https://www.svgrepo.com/show/452093/redux.svg" },
   { id: 17, name: "GraphQL", src: "https://www.svgrepo.com/show/373644/graphql.svg" },
+  { id: 18, name: "React Native", src: "https://www.svgrepo.com/show/374034/reacttemplate.svg" },
+  { id: 19, name: "Framer Motion", src: "https://www.svgrepo.com/show/452207/framer.svg" },
+  { id: 22, name: "Vercel", src: "https://www.svgrepo.com/show/361653/vercel-logo.svg" },
+  { id: 26, name: "Drizzle ORM", src: "https://avatars.githubusercontent.com/u/108468352?s=200&v=4" },
+  { id: 27, name: "PostgreSQL", src: "https://www.svgrepo.com/show/354200/postgresql.svg" },
+  { id: 29, name: "Mysql", src: "https://www.svgrepo.com/show/473731/mysql.svg" },
+  { id: 31, name: "Prisma", src: "https://www.svgrepo.com/show/354210/prisma.svg" },
+  { id: 32, name: "Linux", src: "https://www.svgrepo.com/show/448236/linux.svg" },
+  { id: 33, name: "Nginx", src: "https://www.svgrepo.com/show/354115/nginx.svg" },
+  { id: 35, name: "Python", src: "https://www.svgrepo.com/show/452091/python.svg" },
+  { id: 36, name: "Django", src: "https://www.svgrepo.com/show/353657/django-icon.svg" },
 ]
+
 
 
 const ICON_SIZE = 60
@@ -125,8 +137,7 @@ const RandomTools = () => {
               alt={tool.name} 
               width={50} 
               height={50} 
-            />
-          </motion.div>
+            /> </motion.div>
         )
       })}
     </div>
