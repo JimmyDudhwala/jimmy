@@ -21,7 +21,7 @@ const Navbar = ({isOpen, setIsOpen}:NavbarProps) => {
     };
     const fetchData = async () => {
         try {
-          const result = await axios.get('http://16.170.203.105:5000/api/v1/getSlot', {
+          const result = await axios.get('https://api.bookknest.info/api/v1/getSlot', {
             withCredentials: true
           });
       
