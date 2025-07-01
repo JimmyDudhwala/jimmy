@@ -137,7 +137,7 @@ const ProjectsPage = () => {
 
   const fetchProjects = async () => {
     try {
-      const result = await axios.get("http://16.170.203.105:5000/api/v1/getAllProjects", {
+      const result = await axios.get("https://api.bookknest.info/api/v1/getAllProjects", {
         withCredentials: true,
       })
 
@@ -170,7 +170,7 @@ const ProjectsPage = () => {
 
   const fetchMinorProjects = async () => {
     try {
-      const result = await axios.get("http://16.170.203.105:5000/api/v1/getAllMinorProjects", {
+      const result = await axios.get("https://api.bookknest.info/api/v1/getAllMinorProjects", {
         withCredentials: true,
       })
 
